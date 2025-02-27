@@ -34,16 +34,6 @@ pipeline {
             }
         }
     }
-
-    post {
-        success {
-            echo 'Pipeline executed successfully!'
-        }
-        failure {
-            echo 'Pipeline execution failed!'
-        }
-    }
-
     post {
     success {
         slackSend (channel: '#ci-cd', message: "✅ Pipeline réussi : ${env.JOB_NAME} #${env.BUILD_NUMBER}")
